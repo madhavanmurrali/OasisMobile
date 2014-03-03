@@ -1,0 +1,305 @@
+/** Add css rules here for your application. */
+/** Example rules used by the template application (remove for your app) */
+h1 {
+	font-size: 2em;
+	font-weight: bold;
+	color: #777777;
+	margin: 40px 0px 70px;
+	text-align: center;
+}
+
+body {
+	background-color: #e8f5c7;
+	font-family: verdana;
+	font-size: 16;
+}
+
+.sendButton {
+	display: block;
+	font-size: 16pt;
+}
+
+/** Most GWT widgets already have a style name defined */
+.dialogVPanel {
+	margin: 5px;
+}
+
+.serverResponseLabelError {
+	color: red;
+}
+
+/** Set ids using widget.getElement().setId("idOfElement") */
+#closeButton {
+	margin: 15px 6px 6px;
+}
+
+/* Login Page reg contents */
+.loginPanel {
+	background-color: #d7efa5;
+	height: 300px;
+	width: 300px;
+	position: absolute;
+	top: 20%;
+	left: 35%;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	border-style: solid;
+	border-width: 12px;
+	border-color: f0f8dd;
+}
+
+.loginPanel span {
+	display: block;
+	margin-bottom: 10px;
+}
+
+.loginPanel div {
+	position: relative;
+	top: 7%;
+	left: 28%;
+}
+
+.loginPanel input {
+	height: 35px;
+	width: 140px;
+	font-size: 16px;
+	text-indent: 3px;
+}
+
+.heading {
+	font-size: 30px;
+	font-family: cursive;
+	top: 10%;
+	left: 35%;
+	position: absolute;
+	color: #789533;
+}
+
+.loginPanel input:focus {
+	border: 2px solid #789533
+}
+
+.loginPanel input.red {
+	border: 2px solid #810714
+}
+
+input.red {
+	border: 2px solid #810714
+}
+
+.gry {
+	background-color: #f4f9e9;
+}
+
+.clsBtns {
+	left: 43px;
+	margin-top: 40px;
+}
+
+.btns {
+	background-color: #eff8d9;
+	height: 30px;
+	width: 100px;
+	text-align: center;
+	line-height: 28px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	cursor: pointer;	
+}
+
+.btns:hover {
+	background-position: 0 center;
+}
+
+.btns:active {
+	background-position: 0 top;
+	position: relative;
+	top: 1px;
+}
+
+/* Tasks Main Page */
+.tasksBox {
+	background-color: #d7efa5;
+	height: auto;
+	width: 70%;
+	position: absolute;
+	top: 10%;
+	left: 15%;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	border-style: solid;
+	border-width: 12px;
+	border-color: f0f8dd;
+}
+
+.headingPanel span.head {
+	display: block;
+	margin: 20px;
+}
+
+.taskSelector {
+	padding: 5px 10px;
+	display: inline;
+	background: #f3fae3 url(images/taskSelector.png) repeat-x bottom;
+	border: none;
+	color: #777;
+	cursor: pointer;
+	font-weight: normal;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.taskSelector:hover {
+	background-position: 0 center;
+}
+
+.taskSelector:active {
+	background-position: 0 top;
+	position: relative;
+	top: 1px;
+	padding: 6px 10px 4px;
+}
+
+.taskSelector.green {
+	background-color: #99ab67;
+	color: #000;
+}
+
+.taskSelector.orange {
+	background-color: #ff9c00;
+}
+
+.taskSelector.blue {
+	background-color: #2c6da0;
+	color: white;
+}
+
+.taskSelector.white {
+	background-color: #fff;
+	color: #000;
+	text-shadow: 1px 1px #fff;
+}
+
+div.row {
+	background-color: #EFF8D9;
+	display: block;
+	height: auto;
+	line-height: 3;
+	font-size:14px;
+	margin: 20px 0 15px 20px;
+	text-indent: 5px;
+	width: 96%;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+div.row input {
+	margin-left: 5px;
+	margin-right: 15px;
+}
+
+div.tasks {
+	padding-bottom: 10px;
+	padding-top: 10px;
+}
+
+div.tasks hr {
+	width: 95%;
+	height: 5px;
+	background-color: #D2DABE;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border: none;
+}
+
+div.rowheader {
+	font-family: cursive;
+	font-size: 17px;
+	margin-left: 20px;
+	margin-top: 10px;
+}
+
+.prir {
+	float: right;
+	margin-right: 20px;
+	margin-top: 10px;
+	cursor: pointer;
+}
+
+.edit {
+	float: right;
+	margin-top: 13px;
+	cursor: pointer;
+}
+
+.sh {
+	visibility: hidden;
+}
+
+/* add task pop */
+.addTask {
+	background-color: #e8f5c7;
+	border-radius: 6px;
+	-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	margin: 40px;
+	padding: 20px;
+	font-size: 13px;
+}
+
+.addTask span{
+	display: block;
+	margin: 10px;
+}
+
+.editTask{
+	margin: 20px;
+	padding : 10px;
+}
+
+.editTask span{
+	display: block;
+	margin: 10px;
+}
+
+.editTask .taskSelector{
+	height: 18px;
+	line-height: 18px;
+}
+
+div.addTask hr {
+	width: 100%;
+	height: 5px;
+	background-color: #D2DABE;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border: none;
+}
+
+p.red{
+	font-size: 10;
+	color: #810714;
+	
+}
+span.red{
+	font-size: 10;
+	color: #810714;
+	
+}
+
+div.rowmsg{
+	padding:20px;
+	font-size: 12px;
+	font-family: verdana;
+}
+
+div.ui-datepicker{
+ font-size:10px;
+}

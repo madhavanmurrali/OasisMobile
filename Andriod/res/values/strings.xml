@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="hello">Hello World, GTodoActivity!</string>
+    <string name="app_name">OasisSmartHome</string>
+    <string name="user_name_label">Username</string>
+    <string name="welcome_label">Welcome!</string>
+    <string name="password_label">Password</string>
+    <string name="login_button">Login</string>
+    <string name="forgot_password_button">Forgot Password?</string>
+    <string name="new_user_button">New User</string>
+    <string name="cancel_button">Cancel</string>
+    <string name="done_button">Done</string>
+    <string name="new_account_label">Register</string>
+    <string name="confirm_label">Confirm</string>
+    <string name="security_label">Security</string>
+    <string name="answer_label">Answer</string>
+    <dimen name="layout_margin">15sp</dimen>
+    <dimen name="high_spacing">30sp</dimen>
+    <dimen name="medium_spacing">15sp</dimen>
+    <dimen name="xlarge_text">30sp</dimen>
+    <dimen name="large_text">25sp</dimen>
+    <dimen name="medium_text">20sp</dimen>
+    <dimen name="small_text">15sp</dimen>
+    <dimen name="very_high_spacing">40sp</dimen>
+    <string name="question_label">Question</string>
+    <dimen name="word_width">100sp</dimen>
+    <string name="old_label">Old</string>
+    <string name="new_label">New</string>
+    <string name="account_description_label">Account Description</string>
+    <dimen name="text_box_spacing">19sp</dimen>
+    <string name="delete_button">Delete Account</string>
+    <string name="forgot_password_label">Forgot Password</string>
+    <string name="name_label">Name</string>
+    <string name="task_description_label">Task Description</string>
+    <string name="time_label">Due Date/Time</string>
+    <string name="priority_label">Priority</string>
+    <string name="notes_label">Notes</string>
+    <string name="alert_label">Alert Date/Time</string>
+    <string name="list_label">List </string>
+    <string name="none_label">None</string>
+    <string name="low_label">Low</string>
+    <string name="high_label">High</string>
+    <string name="current_user">Current User</string>
+    <string name="current_list">Current List</string>
+    <string name="task_title_label">Tasks</string>
+    <string name="list_title_label">Devices</string>
+    <dimen name="button_padding">5sp</dimen>
+    <string name="Text_Status_Init">1</string>
+    <string name="Text_Status_Normal">0</string>
+    <string name="noDueDate_label">No due date</string>
+    <string name="account_confirmpassword">Confirm password</string>
+    <string name="account_securityquestion">Security question</string>
+    <string name="account_securityanswer">Security answer</string>
+    <string name="forgotpassword_newpassword">New password</string>
+    <string name="editaccount_oldpassword">Old password</string>
+    <string name="editaccount_newpassword">New password</string>
+    <string name="oasissmarthome">Oasis Smart Home</string>
+    <string name="microcontrolleraddress">Controller Address</string>
+
+</resources>

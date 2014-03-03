@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="2.5" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee                http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+  <!-- Default page to serve -->
+  <welcome-file-list>
+    <welcome-file>jsps/OasisSmartHomePage.jsp</welcome-file>
+  </welcome-file-list>
+
+  <!-- Servlets -->
+  
+  <servlet>
+    <servlet-name>GetDevices</servlet-name>
+    <servlet-class>com.oasishome.server.GetDevices</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetDevices</servlet-name>
+    <url-pattern>/getDevices</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>DeviceOperations</servlet-name>
+    <servlet-class>com.oasishome.server.DeviceOperations</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DeviceOperations</servlet-name>
+    <url-pattern>/deviceOperations</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>SystemServiceServlet</servlet-name>
+    <servlet-class>com.google.api.server.spi.SystemServiceServlet</servlet-class>
+    <init-param>
+      <param-name>services</param-name>
+      <param-value/>
+    </init-param>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>SystemServiceServlet</servlet-name>
+    <url-pattern>/_ah/spi/*</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>userOperations</servlet-name>
+    <servlet-class>com.oasishome.server.UserOperations</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>userOperations</servlet-name>
+    <url-pattern>/userOperations</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>validateUser</servlet-name>
+    <servlet-class>com.oasishome.server.LoginAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>validateUser</servlet-name>
+    <url-pattern>/validateUser</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>logoutUser</servlet-name>
+    <servlet-class>com.oasishome.server.LogoutAction</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>logoutUser</servlet-name>
+    <url-pattern>/logoutUser</url-pattern>
+  </servlet-mapping>
+</web-app>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_marginTop="@dimen/layout_margin"
+    android:layout_marginBottom="@dimen/layout_margin">
+   
+	   <TextView
+	       android:id="@+id/listItemListLabel"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:text="@+id/label"
+	       android:textSize="@dimen/medium_text"
+	       android:layout_marginLeft="@dimen/layout_margin"
+	       android:layout_marginRight="@dimen/layout_margin"
+		   android:layout_marginTop="@dimen/layout_margin"
+    	   android:layout_marginBottom="@dimen/layout_margin">
+	   </TextView>
+	   
+	   <TextView
+	       android:id="@+id/listItemNumberOfItemsLabel"
+	       android:layout_width="wrap_content"
+	       android:layout_height="wrap_content"
+	       android:text="@+id/label"
+	       android:textSize="@dimen/medium_text"
+	       android:layout_alignParentRight="true"
+	       android:layout_alignParentTop="true"
+	       android:layout_marginLeft="@dimen/layout_margin"
+	       android:layout_marginRight="@dimen/layout_margin" 
+	       android:layout_marginTop="@dimen/layout_margin"
+    	   android:layout_marginBottom="@dimen/layout_margin" >
+	    </TextView>
+
+
+</RelativeLayout> 

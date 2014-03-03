@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background_blue_green" >
+    
+    <!-- Title panel -->
+    <LinearLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:gravity="center_horizontal"
+	        android:layout_marginLeft="@dimen/layout_margin"
+	        android:layout_marginRight="@dimen/layout_margin" >
+   
+	 </LinearLayout>
+    
+    <!-- Content panel -->
+
+     <LinearLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginLeft="@dimen/layout_margin"
+         android:layout_marginRight="@dimen/layout_margin"
+         android:gravity="center_horizontal"
+         android:orientation="vertical" >
+
+         <ImageView
+             android:id="@+id/taskDescriptioniorityLowIcon"
+             android:layout_width="76dp"
+             android:layout_height="84dp"
+             android:paddingTop="@dimen/high_spacing"
+             android:src="@drawable/oasisicon" />
+
+         <TextView
+             android:id="@+id/loginPageWelcomeLabel"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:paddingBottom="@dimen/medium_spacing"
+             android:paddingTop="@dimen/high_spacing"
+             android:text="@string/oasissmarthome"
+             android:textSize="@dimen/medium_text" />
+  
+    </LinearLayout>
+     
+	<LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_vertical"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/layout_margin" >	    
+	    
+	    <!-- Textboxes -->
+	    <EditText
+	    	android:id="@+id/loginPageUsernameTextBox"
+	    	android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/user_name_label"
+	    	android:ems="10" >
+	    	<requestFocus />
+		</EditText>
+	
+	 	<EditText
+	    	android:id="@+id/loginPagePasswordTextBox"
+	    	android:layout_width="match_parent"
+	    	android:layout_height="wrap_content"
+	    	android:text="@string/password_label"
+	    	android:ems="10"
+	    	android:inputType="textPassword" >
+	    	<requestFocus />
+		</EditText>
+		
+	 	<!-- Buttons -->
+	    <Button
+	        android:id="@+id/loginPageLoginButton"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginTop="@dimen/medium_spacing"
+	    	android:layout_marginBottom="@dimen/high_spacing"
+	        android:textSize="@dimen/medium_text"
+	        android:text="@string/login_button" />
+	    <Button
+	        android:id="@+id/loginPageNewUserButton"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:textSize="@dimen/small_text"
+	        android:text="@string/new_user_button" />
+	    
+    </LinearLayout>
+
+</LinearLayout>

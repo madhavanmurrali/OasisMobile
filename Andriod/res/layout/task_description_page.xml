@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    
+    <!-- Title panel -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/medium_spacing"
+	    android:paddingBottom="@dimen/medium_spacing" >
+
+        <TextView
+            android:id="@+id/taskDescriptionPageTitleLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"           
+            android:layout_centerInParent="true"
+            android:layout_alignParentTop="true"
+            android:text="@string/task_description_label"
+            android:textSize="@dimen/xlarge_text"
+		    android:textColor="@android:color/darker_gray" />
+
+        <ImageView
+            android:id="@+id/taskDescriptionPageLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:paddingRight="@dimen/button_padding"
+            android:paddingLeft="@dimen/button_padding"
+            android:src="@drawable/navigation_cancel"
+            android:clickable="true" />
+        
+        <ImageView
+            android:id="@+id/taskDescriptionPageBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:paddingRight="@dimen/button_padding"
+            android:paddingLeft="@dimen/button_padding"
+            android:layout_toLeftOf="@+id/taskDescriptionPageTitleLabel"
+            android:clickable="true"
+            android:src="@drawable/navigation_back" />
+
+    </RelativeLayout>
+
+    <!--  Content Panel --> 
+    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    			android:layout_width="fill_parent"
+   			 	android:layout_height="fill_parent"
+   			 	android:layout_marginLeft="@dimen/layout_margin"
+		        android:layout_marginRight="@dimen/layout_margin">
+	     			
+	    <LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:gravity="center_vertical"
+		        android:orientation="vertical"		        
+		        android:isScrollContainer="true" >
+		    
+		    <!-- Name -->
+
+	        <LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:gravity="center_horizontal"
+		        android:orientation="horizontal" >
+		                    
+		        <TextView
+		            android:id="@+id/taskDescriptionPageNameLabel"
+		            android:layout_width="@dimen/word_width"
+		            android:layout_height="wrap_content"           
+		            android:layout_marginTop="@dimen/medium_spacing"        
+		            android:text="@string/name_label"
+		            android:textAppearance="?android:attr/textAppearanceMedium" />
+		        
+		        <EditText
+		            android:id="@+id/taskDescriptionPageUsernameTextBox"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_marginTop="@dimen/medium_spacing"
+		            android:text="current task"           
+		            android:ems="10" />
+		        
+		      </LinearLayout> 
+		      
+	        <!-- Due date -->
+
+	        <TextView
+	            android:id="@+id/taskDescriptionPageDueTimeLabel"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="@dimen/layout_margin"
+	            android:text="@string/time_label"
+	            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+	        <RelativeLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content" >
+
+	            <CheckBox
+	                android:id="@+id/noDueDateCheckbox"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_alignParentLeft="true"
+	                android:layout_alignParentTop="true" />
+
+	            <TextView
+	                android:id="@+id/noDueDateLabel"
+	                android:layout_width="wrap_content"
+	                android:layout_height="wrap_content"
+	                android:layout_centerVertical="true"
+	                android:layout_marginLeft="16dp"
+	                android:layout_toRightOf="@+id/noDueDateCheckbox"
+	                android:text="@string/noDueDate_label"
+	                android:textSize="@dimen/medium_text" />
+
+	        </RelativeLayout>
+	        
+	        <LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:gravity="center_horizontal"
+		        android:layout_marginTop="@dimen/layout_margin" >
+		        <DatePicker
+		                android:id="@+id/taskDescriptionPageDueDatePicker"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content" />
+	        </LinearLayout>
+	        
+	        <LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:gravity="center_horizontal"
+		        android:layout_marginTop="@dimen/layout_margin" >
+		       <TimePicker
+		            android:id="@+id/taskDescriptionPageDueTimePicker"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content" />
+	        </LinearLayout>
+		      
+	        
+	        <!-- Priority -->
+	        <LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content" 
+		        android:layout_marginTop="@dimen/layout_margin"               
+		        android:orientation="horizontal" >          
+		                    
+		        <TextView
+		            android:id="@+id/taskDescriptionPagePriorityLabel"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"           
+		            android:text="@string/priority_label"
+		            android:textAppearance="?android:attr/textAppearanceMedium" />	        
+		        <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+   					 android:layout_width="fill_parent"
+    				 android:layout_height="wrap_content"
+    				 android:orientation="vertical">
+		        <RadioButton
+		            android:id="@+id/taskDescriptionPagePriorityNone"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:checked="true"
+		            android:text="@string/none_label" />
+		        <RadioButton
+		            android:id="@+id/taskDescriptionPagePriorityLow"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="@string/low_label" />
+		        <ImageView
+            		android:id="@+id/taskDescriptionPriorityLowIcon"
+            		android:layout_width="wrap_content"
+            		android:layout_height="wrap_content"           		
+            		android:src="@drawable/flag_yellow" />
+		        
+		        <RadioButton
+		            android:id="@+id/taskDescriptionPagePriorityHigh"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:text="@string/high_label" />
+		        <ImageView
+            		android:id="@+id/taskDescriptionPriorityHighIcon"
+            		android:layout_width="wrap_content"
+            		android:layout_height="wrap_content"
+            		android:src="@drawable/flag_red" />
+		             </RadioGroup>   
+		      </LinearLayout>
+		      
+	        <!-- Notes -->
+	        <LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:gravity="center_horizontal"
+		        android:orientation="horizontal" >
+		                    
+		        <TextView
+		            android:id="@+id/taskDescriptionPageNotesLabel"
+		            android:layout_width="@dimen/word_width"
+		            android:layout_height="wrap_content"           
+		            android:layout_marginTop="@dimen/very_high_spacing"        
+		            android:text="@string/notes_label"
+		            android:textAppearance="?android:attr/textAppearanceMedium" />
+		        
+		        <EditText
+		            android:id="@+id/taskDescriptionPageNotesTextBox"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_marginTop="@dimen/high_spacing"	                       
+		            android:ems="10" />
+		        
+		      </LinearLayout>
+		      
+	        <!-- Alert -->
+	        <TextView
+		            android:id="@+id/taskDescriptionPageAlertLabel"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"           
+		            android:layout_marginTop="@dimen/layout_margin"        
+		            android:text="@string/alert_label"
+		            android:textAppearance="?android:attr/textAppearanceMedium" />
+	        
+	        <LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:gravity="center_horizontal"
+		        android:layout_marginTop="@dimen/layout_margin" >
+		        <DatePicker
+		                android:id="@+id/taskDescriptionPageAlertDatePicker"
+		                android:layout_width="wrap_content"
+		                android:layout_height="wrap_content" />
+	        </LinearLayout>
+	        
+	        <LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:gravity="center_horizontal"
+		        android:layout_marginTop="@dimen/layout_margin" >
+		       <TimePicker
+		            android:id="@+id/taskDescriptionPageAlertTimePicker"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content" />
+	        </LinearLayout>
+		      
+	        <!-- List -->
+	        <LinearLayout
+		        android:layout_width="fill_parent"
+		        android:layout_height="wrap_content"
+		        android:gravity="center_horizontal"
+		        android:orientation="horizontal" >
+		                    
+		        <TextView
+		            android:id="@+id/taskDescriptionPageListLabel"
+		            android:layout_width="@dimen/word_width"
+		            android:layout_height="wrap_content"           
+		            android:layout_marginTop="@dimen/very_high_spacing"        
+		            android:text="@string/list_label"
+		            android:textAppearance="?android:attr/textAppearanceMedium" />
+		        
+		        <Spinner
+		            android:id="@+id/taskDescriptionPageLists"
+		            android:layout_width="fill_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_marginTop="@dimen/text_box_spacing" />
+		        
+		      </LinearLayout>
+		      		    <Button
+			        android:id="@+id/taskDescriptionPageCancelButton"
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:textSize="@dimen/medium_text"
+			        android:text="@string/cancel_button"
+			        android:layout_margin="@dimen/medium_spacing" />
+		</LinearLayout>
+	</ScrollView>    	 
+</LinearLayout>

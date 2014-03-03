@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+    
+    <!-- Title panel -->
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/layout_margin"
+        android:layout_marginRight="@dimen/layout_margin"
+        android:gravity="center_horizontal"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/accountPageTitleLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.39"
+            android:paddingBottom="@dimen/medium_spacing"
+            android:paddingTop="@dimen/medium_spacing"
+            android:text="@string/new_account_label"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/large_text" />
+
+    </LinearLayout>
+
+    <!--  Content Panel -->
+    <LinearLayout 
+        	android:layout_width="match_parent"
+        	android:layout_height="wrap_content"
+        	android:orientation="vertical"
+        	android:layout_marginLeft="@dimen/layout_margin"
+	        android:layout_marginRight="@dimen/layout_margin"
+        	android:weightSum="100">
+	    
+	    <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    			android:layout_width="fill_parent"
+   			 	android:layout_height="fill_parent"
+    			android:layout_weight="85">
+    		
+	        <LinearLayout
+	            android:layout_width="match_parent"
+	            android:layout_height="match_parent"
+	            android:layout_marginBottom="@dimen/layout_margin"
+	            android:isScrollContainer="true"
+	            android:orientation="vertical" >
+
+	            <!-- Username -->
+
+	            <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="match_parent"
+	                android:layout_marginBottom="@dimen/layout_margin"
+	                android:gravity="center_horizontal"
+	                android:orientation="horizontal" >
+
+	                <TextView
+	                    android:id="@+id/accountPageUsernameLabel"
+	                    android:layout_width="@dimen/word_width"
+	                    android:layout_height="wrap_content"
+	                    android:layout_marginTop="@dimen/high_spacing"
+	                    android:text="@string/user_name_label"
+	                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+	                <EditText
+	                    android:id="@+id/accountPageUsernameTextBox"
+	                    android:layout_width="fill_parent"
+	                    android:layout_height="wrap_content"
+	                    android:layout_marginTop="@dimen/high_spacing"
+	                    android:ems="10" />
+	            </LinearLayout>
+
+	            <!-- Password -->
+
+	            <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="match_parent"
+	                android:layout_marginBottom="@dimen/layout_margin"
+	                android:gravity="center_horizontal"
+	                android:orientation="horizontal" >
+
+	                <TextView
+	                    android:id="@+id/accountPagePasswordLabel"
+	                    android:layout_width="@dimen/word_width"
+	                    android:layout_height="wrap_content"
+	                    android:layout_marginTop="@dimen/button_padding"
+	                    android:text="@string/password_label"
+	                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+	                <EditText
+	                    android:id="@+id/accountPagePasswordTextBox"
+	                    android:layout_width="fill_parent"
+	                    android:layout_height="wrap_content"
+	                    android:layout_marginTop="@dimen/medium_spacing"
+	                    android:ems="10"
+	                    android:inputType="textPassword" >
+
+	                    <requestFocus />
+	                </EditText>
+	            </LinearLayout>
+
+	            <!-- Confirm Password -->
+
+	            <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="match_parent"
+	                android:layout_marginBottom="@dimen/layout_margin"
+	                android:gravity="center_horizontal"
+	                android:orientation="horizontal" >
+
+	                <TextView
+	                    android:id="@+id/accountPageConfirmPasswordLabel"
+	                    android:layout_width="@dimen/word_width"
+	                    android:layout_height="wrap_content"
+	                    android:layout_marginTop="@dimen/button_padding"
+	                    android:text="@string/account_confirmpassword"
+	                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+	                <EditText
+	                    android:id="@+id/accountPageConfirmPasswordTextBox"
+	                    android:layout_width="fill_parent"
+	                    android:layout_height="wrap_content"
+	                    android:layout_marginTop="@dimen/medium_spacing"
+	                    android:ems="10"
+	                    android:inputType="textPassword" />
+	            </LinearLayout>
+	            
+		<!--  Micro Controller Address -->
+	             <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="match_parent"
+	                android:layout_marginBottom="@dimen/layout_margin"
+	                android:gravity="center_horizontal"
+	                android:orientation="horizontal" >
+
+	                <TextView
+	                    android:id="@+id/accountPageMCaddress"
+	                    android:layout_width="@dimen/word_width"
+	                    android:layout_height="wrap_content"
+	                    android:layout_marginTop="@dimen/button_padding"
+	                    android:text="@string/microcontrolleraddress"
+	                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+	                <EditText
+	                    android:id="@+id/accountPageMCaddressText"
+	                    android:layout_width="fill_parent"
+	                    android:layout_height="wrap_content"
+	                    android:layout_marginTop="@dimen/medium_spacing"
+	                    android:ems="10"
+	                     />
+	            </LinearLayout>
+	            
+	            <!-- Security Question -->
+
+	            <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="match_parent"
+	                android:layout_marginBottom="@dimen/layout_margin"	               
+	                android:gravity="center_horizontal"
+	                android:orientation="horizontal" >
+
+	                <TextView
+	                    android:id="@+id/accountPageSecurityQuestionLabel"
+	                    android:layout_width="@dimen/word_width"
+	                    android:layout_height="wrap_content"
+	                    android:layout_marginTop="@dimen/button_padding"
+	                    android:text="@string/account_securityquestion"
+	                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+	                <Spinner
+	                    android:id="@+id/accountPageSecurityQuestions"
+	                    android:layout_width="fill_parent"
+	                    android:layout_height="wrap_content"
+	                    android:layout_marginTop="@dimen/medium_spacing" />
+	            </LinearLayout>
+
+	            <!-- Security Answer -->
+
+	            <LinearLayout
+	                android:layout_width="match_parent"
+	                android:layout_height="match_parent"
+	                android:layout_marginBottom="@dimen/layout_margin"
+	                android:gravity="center_horizontal"
+	                android:orientation="horizontal" >
+
+	                <EditText
+	                    android:id="@+id/accountPageSecurityAnswerTextBox"
+	                    android:layout_width="fill_parent"
+	                    android:layout_height="wrap_content"
+	                    android:layout_marginTop="@dimen/high_spacing"
+	                    android:ems="10" />
+	            </LinearLayout>
+	        </LinearLayout>
+
+		 </ScrollView>
+
+		<!-- Buttons panel -->
+		<LinearLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:gravity="bottom"
+		        android:orientation="horizontal"
+		        android:layout_marginTop="@dimen/layout_margin"
+		        android:layout_marginBottom="@dimen/layout_margin"		        
+		        android:layout_weight="1" >	  
+		       <Button
+			        android:id="@+id/accountPageCancelButton"
+			        android:layout_width="wrap_content"
+			        android:layout_height="wrap_content"
+			        android:textSize="@dimen/medium_text"
+			        android:text="@string/cancel_button" />
+			    <Button
+			        android:id="@+id/accountPageDoneButton"
+			        android:layout_width="fill_parent"
+			        android:layout_height="wrap_content"
+			        android:textSize="@dimen/medium_text"
+			        android:text="@string/done_button" />
+			   
+		 </LinearLayout>
+	</LinearLayout>
+
+    <Spinner
+        android:id="@+id/spinner1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

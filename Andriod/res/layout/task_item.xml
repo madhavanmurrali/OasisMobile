@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_margin="@dimen/layout_margin"
+     >
+
+    <CheckBox
+        android:id="@+id/listItemCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/layout_margin" />
+
+    <!-- Text -->
+    <LinearLayout 
+        android:id="@+id/listItemLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        android:layout_toRightOf="@+id/listItemCheckBox"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="@dimen/layout_margin" >
+        
+	    <TextView
+	        android:id="@+id/listItemTaskLabel"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        
+	        android:text="@+id/label"
+	        android:textSize="@dimen/medium_text" >
+	    </TextView>
+	    
+	    <TextView
+	        android:id="@+id/listItemDueDateLabel"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"              
+	        android:text="@+id/label"
+	        android:textSize="@dimen/small_text" >
+	    </TextView>
+    </LinearLayout>
+    
+    <ImageView
+        android:id="@+id/listItemIcon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="@dimen/layout_margin" >
+    </ImageView>
+
+</RelativeLayout> 

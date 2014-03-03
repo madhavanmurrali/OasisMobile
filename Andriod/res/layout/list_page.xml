@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
+    
+    <!-- Title panel -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="@dimen/medium_spacing"
+		android:paddingBottom="@dimen/medium_spacing" >
+
+        <ImageView
+            android:id="@+id/listsPageLogout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:paddingRight="@dimen/button_padding"
+            android:src="@drawable/navigation_cancel"
+            android:clickable="true" />
+        
+        <ImageView
+            android:id="@+id/listsPageEdit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@+id/listsPageLogout"
+            android:paddingRight="@dimen/button_padding"
+            android:paddingLeft="@dimen/button_padding"
+            android:src="@drawable/content_edit"
+            android:clickable="true" />
+
+        <TextView
+            android:id="@+id/listsPageTitleLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignTop="@+id/listsPageEdit"
+            android:layout_marginLeft="14dp"
+            android:text="@string/current_user"
+            android:textColor="@android:color/darker_gray"
+            android:textSize="@dimen/xlarge_text" />
+
+    </RelativeLayout>
+    
+     <RelativeLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="@dimen/layout_margin"
+	        android:layout_marginRight="@dimen/button_padding" >
+	        
+	    <TextView
+		        android:id="@+id/listsPageListsLabel"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"		        
+		        android:paddingBottom="@dimen/medium_spacing"
+		        android:textSize="@dimen/large_text"
+		        android:text="@string/list_title_label" />
+	    
+	    <ImageView
+	        android:id="@+id/listPageAdd"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+			android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+	        android:clickable="true"
+	        android:paddingBottom="@dimen/medium_spacing"
+	        android:src="@drawable/content_new" />
+
+    </RelativeLayout>
+    
+    <!--  Content Panel --> 
+
+	
+	     <ListView
+	        android:id="@+id/list"
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content"
+	        android:isScrollContainer="true" >
+	    </ListView>
+
+</LinearLayout>
