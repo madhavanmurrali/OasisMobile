@@ -9,6 +9,18 @@ public class Device implements Serializable {
 	private Long userId;
 	private String name;
 	private String nickname;
+	private String imageSrc;
+	private String xpos;
+	private String ypos;
+	private long time;
+	private int type=-1;
+	public static final int LIGHT_TYPE=1;
+	public static final int FAN_TYPE=2;
+	public static final int TV_TYPE=3;
+	public static final int OTHERS_TYPE=4;
+	
+	
+	
 
 	public String getNickname() {
 		return nickname;
@@ -112,6 +124,46 @@ public class Device implements Serializable {
 
 	public void setIsdeleted(boolean isdeleted) {
 		this.isdeleted = isdeleted;
+	}
+
+	public String getImageSrc() {
+		return imageSrc;
+	}
+
+	public void setImageSrc(String imageSrc) {
+		this.imageSrc = imageSrc;
+	}
+
+	public String getYpos() {
+		return ypos;
+	}
+
+	public void setYpos(String ypos) {
+		this.ypos = ypos;
+	}
+
+	public String getXpos() {
+		return xpos;
+	}
+
+	public void setXpos(String xpos) {
+		this.xpos = xpos;
+	}
+
+	public long getTime() {
+		return time;
+	}
+
+	public void setTime(long time) {
+		this.time = time;
+	}
+
+	public int getType() {
+		return type;
+	}
+
+	public void setType(int type) {
+		this.type = type;
 	}
 
 }

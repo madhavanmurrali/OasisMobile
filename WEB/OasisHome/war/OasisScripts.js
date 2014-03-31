@@ -2,13 +2,13 @@
 /* Login Page */
 
 function checkLoginAndRedirect(){
-	/*$.post("/validateUser", {
+	$.post("/validateUser", {
 	}, function(data) {
 		var jsObj = data;
 		if(jsObj!=null && jsObj.status){
 			getUserHome();
 		}
-	},"json");*/
+	},"json");
 }
 
 function logOut(){
@@ -46,27 +46,34 @@ function validateLogin() {
 			$("#password").siblings("p.red").html(jsObj.errorMessage);
 			$("#password").siblings("p.red").show();
 		}else{
-			getUserHomeDevices(uname,pwd);
+			getUserHomeDevices();
 		}
 	},"json");
 	
 	
 }
 
-function getUserHomeDevices(uname,pwd){
+function getUserHomeDevices(){
 	$.post("/getDevices", {
-		"uname" : encodeURIComponent(uname),
-		"pwd" : encodeURIComponent(pwd)
+		"isMobile" : false
 	}, function(data) {
-		$("#mainContent").html(data);
+		$("#OasisPage").html(data);
+	});
+}
+
+function getUserBillPredictions(){
+	$.post("/getBillPredictions", {
+		"isMobile" : false
+	}, function(data) {
+		$("#OasisPage").html(data);
 	});
 }
 
 function getUserHome(taskidfocus){
 	$.post("/getDevices", {
-		
+		"isMobile" : false
 	}, function(data) {
-		$("#mainContent").html(data);
+		$("#OasisPage").html(data);
 		if(taskidfocus){
 			$('#task_'+taskidfocus).css("backgroundColor","#EFF8D9");
 			$('#task_'+taskidfocus).animate({backgroundColor:"#99AB67" }, 'slow',function() {
@@ -220,6 +227,70 @@ function addNewTask(elm){
 	},"json");
 	
 }
+
+// All user interface stuff here
+function initSwitches(){
+	$(".onoff").bootstrapSwitch('animate', true);	
+	$('.onoff').on('switchChange', function (e, data) {
+		  var $element = $(data.el),
+		      value = data.value;
+		  toggleDeviceState($element.parents("#extras").parent().attr("id"), value);
+		});
+	}
+
+function toggleDeviceMonitorState(id,state,left,top){
+	id=id.replace("draggable_","");
+$.post("/deviceOperations", {
+	"id" : encodeURIComponent(id),
+	"state" : encodeURIComponent(state),	
+	"action":"deviceMonitorState",
+	"xstate" : encodeURIComponent(left),	
+	"ystate" : encodeURIComponent(top)
+}, function(data) {
+var jsObj = data;
+	if(!jsObj.status){
+		// Reload ...
+	}
+},"json");
+}
+
+function toggleDeviceState(id,state){
+	id=id.replace("draggable_","");
+$.post("/deviceOperations", {
+	"id" : encodeURIComponent(id),
+	"state" : encodeURIComponent(state),	
+	"action":"deviceState"
+}, function(data) {
+var jsObj = data;
+if(jsObj==null)return;
+	if(jsObj.status && jsObj.resp == "1"){
+		// Reload ...
+		$('.messageBox').html('Changes saved ...');
+		$('.messageBox').show();
+		setTimeout(function() { 			
+			$('.messageBox').fadeOut('fast');  
+			}, 1000); // <-- time in milliseconds  
+	}else{
+		getUserHomeDevices();
+	}
+},"json");
+}
+
+function updatePosition(id,pos){
+	id=id.replace("draggable_","");
+	$.post("/deviceOperations", {
+		"id" : encodeURIComponent(id),
+		"xstate" : encodeURIComponent(pos.left),	
+		"ystate" : encodeURIComponent(pos.top),	
+		"action":"devicePositions"
+	}, function(data) {
+	var jsObj = data;
+		if(!jsObj.status){
+			// Reload ...
+		}
+	},"json");
+}
+
 
 
 // edit a task ..

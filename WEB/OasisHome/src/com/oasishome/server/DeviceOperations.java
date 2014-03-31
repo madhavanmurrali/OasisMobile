@@ -30,13 +30,13 @@ public class DeviceOperations extends HttpServlet {
 		JSONObject jsobj = new JSONObject();
 		PrintWriter pout = resp.getWriter();
 
-		// String username = (String) serv.getAttribute("loggedinUserName");
-		// Long userid = (Long) serv.getAttribute("loggedinUserId");
+		String username = (String) serv.getAttribute("loggedinUserName");
+		Long userid = (Long) serv.getAttribute("loggedinUserId");
 
 		String name = req.getParameter("uname");
 		String pwd = req.getParameter("pwd");
 		DBUtil dbutil = new DBUtil();
-		Long userid = null;
+		// Long userid = null;
 		if (name != null) {
 			userid = dbutil.validateUserLogin(name, PwdEncrypt.encrypt(pwd));
 			if (userid == null) {
@@ -64,7 +64,7 @@ public class DeviceOperations extends HttpServlet {
 					.getParameter("devicename"));
 			Long newedittaskid = null;
 			boolean editmode = false;
-			
+
 			if (action.equalsIgnoreCase("editDevice")) {
 				editmode = true;
 				newedittaskid = req.getParameter("id") != null ? Long
@@ -113,7 +113,7 @@ public class DeviceOperations extends HttpServlet {
 				Long newdeviceid = dbutil.createItem(deviceObj);
 				deviceObj.setId(newdeviceid);
 				System.out.print("CREADED" + userid);
-				
+
 				dbutil.createStatEntry(deviceObj);
 				try {
 					jsobj.put("status", true);
@@ -124,9 +124,8 @@ public class DeviceOperations extends HttpServlet {
 				pout.write(jsobj.toString());
 			}
 		} else if (action != null && action.equalsIgnoreCase("updateDevice")) {
-			//called by the micro controller alone ..
-			
-			
+			// called by the micro controller alone ..
+
 			Device deviceObj = new Device();
 			String micAddr = URLDecoder.decode(req
 					.getParameter("micro_address"));
@@ -137,11 +136,11 @@ public class DeviceOperations extends HttpServlet {
 			String devicename = URLDecoder.decode(req
 					.getParameter("devicename"));
 			deviceObj.setName(devicename);
-			
+
 			Long id = dbutil.getDeviceByMICANDNAME(micAddr, devicename);
-			
-			if(id==null){
-				deviceObj.setNickname(devicename);				
+
+			if (id == null) {
+				deviceObj.setNickname(devicename);
 				deviceObj.setActive(false);
 				deviceObj.setStatus(status);
 				Long newdeviceid = dbutil.createItem(deviceObj);
@@ -155,7 +154,7 @@ public class DeviceOperations extends HttpServlet {
 					e.printStackTrace();
 				}
 				pout.write(jsobj.toString());
-			}else{
+			} else {
 				Device udated = dbutil.getItemByItemId(id);
 				udated.setStatus(status);
 				dbutil.updateItem(udated);
@@ -168,25 +167,102 @@ public class DeviceOperations extends HttpServlet {
 				}
 				pout.write(jsobj.toString());
 			}
-			
-			
-			
-		} else if (action != null && action.equalsIgnoreCase("toggleDevice")) {
-			/*
-			 * Long taskid = req.getParameter("taskId") != null ? Long
-			 * .parseLong(req.getParameter("taskId")) : null;
-			 * System.out.print("test");
-			 * 
-			 * if (taskid != null) { DBUtil dbutil = new DBUtil();
-			 * dbutil.completeItem(taskid, userid); }
-			 */
-		} else if (action != null && action.equalsIgnoreCase("deleteDevice")) {
-			/*
-			 * Long taskid = req.getParameter("taskId") != null ? Long
-			 * .parseLong(req.getParameter("taskId")) : null; if (taskid !=
-			 * null) { DBUtil dbutil = new DBUtil(); dbutil.deleteItem(taskid,
-			 * userid); }
-			 */
+
+		} else if (action != null
+				&& action.equalsIgnoreCase("deviceMonitorState")) {
+
+			Long id = req.getParameter("id") != null ? Long.parseLong(req
+					.getParameter("id")) : null;
+			Boolean state = req.getParameter("state") != null ? Boolean
+					.parseBoolean(req.getParameter("state")) : null;
+
+			if (id != null) {
+				if (!state) {
+					Device dev = new Device();
+					dev.setUserId(userid);
+					dev.setId(id);
+					dbutil.deleteItemUserMap(dev);
+				} else {
+					String xstate = req.getParameter("xstate") != null ? (req
+							.getParameter("xstate")) : null;
+					String ystate = req.getParameter("ystate") != null ? (req
+							.getParameter("ystate")) : null;
+
+					Device dev = new Device();
+					dev.setUserId(userid);
+					dev.setId(id);
+					dev.setXpos(xstate);
+					dev.setYpos(ystate);
+					dbutil.createItemUserMap(dev);
+				}
+				try {
+					jsobj.put("status", true);
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+				pout.write(jsobj.toString());
+			}
+
+		} else if (action != null && action.equalsIgnoreCase("devicePositions")) {
+			Long id = req.getParameter("id") != null ? Long.parseLong(req
+					.getParameter("id")) : null;
+			String xstate = req.getParameter("xstate") != null ? (req
+					.getParameter("xstate")) : null;
+			String ystate = req.getParameter("ystate") != null ? (req
+					.getParameter("ystate")) : null;
+
+			if (id != null) {
+				Device dev = new Device();
+				dev.setUserId(userid);
+				dev.setId(id);
+				dev.setXpos(xstate);
+				dev.setYpos(ystate);
+				dbutil.deleteItemUserMap(dev);
+				dbutil.createItemUserMap(dev);
+				try {
+					jsobj.put("status", true);
+				} catch (JSONException e) {
+					e.printStackTrace();
+				}
+				pout.write(jsobj.toString());
+			}
+		} else if (action != null && action.equalsIgnoreCase("deviceState")) {
+
+			Long id = req.getParameter("id") != null ? Long.parseLong(req
+					.getParameter("id")) : null;
+			Boolean state = req.getParameter("state") != null ? Boolean
+					.parseBoolean(req.getParameter("state")) : null;
+			if (id != null) {
+				Device dev = dbutil.getItemByItemId(id);
+				if (dev != null && dev.getName() != null) {
+
+					
+
+					// call the Api
+					com.oasishome.server.User user = dbutil.getUserById(userid);
+					String micAddress = user.getMicAddress();// (String)
+					String op = SyncService.updateDeviceWrite(micAddress,
+							dev.getName(), state);
+					
+					try {
+						jsobj.put("status", true);
+						jsobj.put("resp", op);
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
+					
+					if(op!=null && op.equals("1")){
+					// udpate local db
+					dev.setStatus(state);
+					dbutil.updateItem(dev);
+					
+					// update our db entry
+					dbutil.createStatEntry(dev);
+					}
+				}
+				pout.write(jsobj.toString());
+			}
+
 		}
 
 	}

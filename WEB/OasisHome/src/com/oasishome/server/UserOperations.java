@@ -29,7 +29,7 @@ public class UserOperations extends HttpServlet {
 
 			String name = req.getParameter("name");
 			String pwd = req.getParameter("pwd");
-			String mic = req.getParameter("mic");
+			String mic = req.getParameter("micAddress");
 
 			DBUtil dbutil = new DBUtil();
 			User userObj = new User();
@@ -54,6 +54,25 @@ public class UserOperations extends HttpServlet {
 					jsobj.put("userID", userObj.getId());
 					serv.setAttribute("loggedinUserName", name);
 					serv.setAttribute("loggedinUserId", userObj.getId());
+					
+					com.oasishome.server.User user = dbutil.getUserById(userObj.getId());
+					String devicesList = SyncService.fetchDevicesApiHome(user
+							.getMicAddress());
+					if (devicesList != null) {
+						org.json.JSONArray json;
+						try {
+							json = new org.json.JSONArray(devicesList);
+							SyncService.checkDevices(json, user.getMicAddress(),userObj.getId());
+						} catch (org.json.JSONException e1) {
+							e1.printStackTrace();
+						}
+					}
+					try {
+						jsobj.put("status", true);
+					} catch (JSONException e) {
+						e.printStackTrace();
+					}
+					
 				} catch (JSONException e) {
 					e.printStackTrace();
 				}

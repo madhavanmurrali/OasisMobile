@@ -31,6 +31,14 @@
       <param-value/>
     </init-param>
   </servlet>
+  <servlet>
+    <servlet-name>GetBillPredictions</servlet-name>
+    <servlet-class>com.oasishome.server.GetBillPredictions</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GetBillPredictions</servlet-name>
+    <url-pattern>/getBillPredictions</url-pattern>
+  </servlet-mapping>
 
   <servlet-mapping>
     <servlet-name>SystemServiceServlet</servlet-name>
@@ -61,4 +69,20 @@
     <servlet-name>logoutUser</servlet-name>
     <url-pattern>/logoutUser</url-pattern>
   </servlet-mapping>
+  
+  <servlet>
+    <servlet-name>deviceUpdates</servlet-name>
+    <servlet-class>com.oasishome.server.DeviceUpdates</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>deviceUpdates</servlet-name>
+    <url-pattern>/deviceUpdates</url-pattern>
+  </servlet-mapping>
+  
+  <listener>
+    <listener-class>
+     com.oasishome.server.OasisAppCongs
+    </listener-class>
+  </listener>
+  
 </web-app>

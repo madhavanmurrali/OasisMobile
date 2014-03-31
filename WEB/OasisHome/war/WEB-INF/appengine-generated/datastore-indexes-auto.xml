@@ -1,12 +1,4 @@
-<!-- Indices written at Thu, 27 Feb 2014 17:02:32 EST -->
+<!-- Indices written at Mon, 31 Mar 2014 01:16:37 EDT -->
 
-<datastore-indexes>
+<datastore-indexes/>
 
-    <!-- Used 2 times in query history -->
-    <datastore-index kind="devices" ancestor="false" source="auto">
-        <property name="deleted" direction="asc"/>
-        <property name="userid" direction="asc"/>
-        <property name="lastmodified" direction="asc"/>
-    </datastore-index>
-
-</datastore-indexes>

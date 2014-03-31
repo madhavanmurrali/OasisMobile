@@ -15,6 +15,9 @@
 	</classpathentry>
 	<classpathentry kind="lib" path="C:/Users/lokesh/Desktop/ECLIPSE/eclipse-jee-juno-win32-x86_64/eclipse/plugins/com.google.gwt.eclipse.sdkbundle_2.4.0.v201208080121-rel-r42/gwt-2.4.0/validation-api-1.0.0.GA-sources.jar"/>
 	<classpathentry kind="lib" path="C:/Users/lokesh/Desktop/ECLIPSE/eclipse-jee-juno-win32-x86_64/eclipse/plugins/com.google.gwt.eclipse.sdkbundle_2.4.0.v201208080121-rel-r42/gwt-2.4.0/validation-api-1.0.0.GA.jar" sourcepath="C:/Users/lokesh/Desktop/ECLIPSE/eclipse-jee-juno-win32-x86_64/eclipse/plugins/com.google.gwt.eclipse.sdkbundle_2.4.0.v201208080121-rel-r42/gwt-2.4.0/validation-api-1.0.0.GA-sources.jar"/>
+	<classpathentry kind="lib" path="src/libs/commons-cli-1.2.jar"/>
+	<classpathentry kind="lib" path="src/libs/httpcore-4.3.2.jar"/>
+	<classpathentry kind="lib" path="src/libs/org.json-20120521.jar"/>
 	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre7"/>
 	<classpathentry kind="lib" path="C:/Users/lokesh/Desktop/appengine-java-sdk-1.9.0/appengine-java-sdk-1.9.0/lib/shared/appengine-local-runtime-shared.jar">
 		<attributes>
